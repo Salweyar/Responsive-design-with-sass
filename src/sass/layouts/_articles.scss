@@ -1,0 +1,78 @@
+.articles {
+  background-color: $veryLightGray;
+
+  &__content {
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1.875rem;
+
+    // auto-fix/auto-fill decide the column based on content and minmax set the width
+    // grid-template-columns: repeat(auto-fit, minmax(14.375rem, 1fr));
+
+    grid-template-columns: 1fr;
+
+    @include breakpoints-up(medium) {
+      grid-template-columns: repeat(
+        2,
+        1fr
+      ); // 2 column with 1fr each be the same width
+    }
+
+    @include breakpoints-up(large) {
+      grid-template-columns: repeat(
+        4,
+        1fr
+      ); // 4 column with 1fr each be the same width
+    }
+  }
+
+  &__item {
+    border-radius: 0.3125rem;
+    overflow: hidden;
+    background-color: $white;
+    // first 0px(center) control horizontal shadow position
+    // Second 3px control vertical shadow
+    // third 12px is spread
+    // rgba is the color of the shadow
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image {
+    height: 12.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__text {
+    padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+    color: $grayishBlue;
+
+    @include breakpoints-up(medium) {
+      padding: 1.875rem 1.5625rem;
+    }
+  }
+
+  &__author {
+    font-size: 0.625rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__title {
+    font-size: 1.0625rem;
+    line-height: 1.2;
+    color: $darkBlue;
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    font-size: 0.8125rem;
+  }
+}
