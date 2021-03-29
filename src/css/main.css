@@ -423,6 +423,7 @@ button:hover::before,
 
 .hero {
   background-color: #fafafa;
+  overflow-x: hidden;
 }
 
 @media (min-width: 64em) {
